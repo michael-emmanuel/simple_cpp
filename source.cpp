@@ -2,13 +2,18 @@
 using namespace std;
 
 void welcome();
-void goodbye();
+
+char getYesNo();
+
+void printResponse(char responseToPrint);
 
 int main()
 {
   welcome();
-  goodbye();
 
+  char answer = getYesNo();
+
+  printResponse(answer);
 
   return 0;
 }
@@ -18,7 +23,18 @@ void welcome()
   cout << "Welcome! \n";
 }
 
-void goodbye()
+char getYesNo()
 {
-  cout << "Goodbye! \n";
+  cout << "Please answer: y or n.\n";
+
+  char response;
+
+  cin >> response;
+
+  return response;
+}
+
+void printResponse(char responseToPrint)
+{
+  cout << "Your answer was: " << responseToPrint << endl;
 }
