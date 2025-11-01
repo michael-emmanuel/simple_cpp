@@ -1,40 +1,19 @@
 #include <iostream>
 using namespace std;
 
-void welcome();
-
-char getYesNo();
-
-void printResponse(char responseToPrint);
-
 int main()
 {
-  welcome();
+  int MyInt(0);
 
-  char answer = getYesNo();
+  int count = 0;
 
-  printResponse(answer);
+  while (count <= 10)
+  {   
+    cout << MyInt << endl;
+    count++;
+  }
+
+  cout << MyInt << endl;
 
   return 0;
-}
-
-void welcome()
-{
-  cout << "Welcome! \n";
-}
-
-char getYesNo()
-{
-  cout << "Please answer: y or n.\n";
-
-  char response;
-
-  cin >> response;
-
-  return response;
-}
-
-void printResponse(char responseToPrint)
-{
-  cout << "Your answer was: " << responseToPrint << endl;
 }
