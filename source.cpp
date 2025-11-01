@@ -1,7 +1,22 @@
 #include <iostream>
+using namespace std;
 
 int main()
 {
-  std::cout << "Hello, World!\n";
+  char myCharacter;
+  myCharacter = 'Y';
 
+  int myInt;
+  myInt = 13;
+
+  cout << myCharacter << endl;
+  cout << myInt << endl;
+
+  myCharacter = 'n';
+  myInt = 12;
+
+  cout << myCharacter << endl;
+  cout << myInt << endl;
+
+  return 0;
 }
