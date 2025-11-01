@@ -1,33 +1,24 @@
 #include <iostream>
 using namespace std;
 
+void welcome();
+void goodbye();
+
+int main()
+{
+  welcome();
+  goodbye();
+
+
+  return 0;
+}
+
 void welcome()
 {
   cout << "Welcome! \n";
 }
 
-void printNumber(int numToPrint)
+void goodbye()
 {
-  cout << numToPrint << endl;
-}
-
-int add(int a, int b)
-{
-  int result;
-  result = a + b;
-  return result;
-}
-
-int main()
-{
-  welcome();
-
-  printNumber(4);
-
-  int c;
-  c = add(1, 4);
-
-  printNumber(c);
-
-  return 0;
+  cout << "Goodbye! \n";
 }
