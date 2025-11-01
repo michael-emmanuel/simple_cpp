@@ -1,15 +1,33 @@
 #include <iostream>
 using namespace std;
 
+void welcome()
+{
+  cout << "Welcome! \n";
+}
+
+void printNumber(int numToPrint)
+{
+  cout << numToPrint << endl;
+}
+
+int add(int a, int b)
+{
+  int result;
+  result = a + b;
+  return result;
+}
+
 int main()
 {
-  int a(1);
-  int b = 13;
+  welcome();
 
-  if (a < b)
-  {
-    cout << "a is less than b. " << endl;
-  }
+  printNumber(4);
+
+  int c;
+  c = add(1, 4);
+
+  printNumber(c);
 
   return 0;
 }
