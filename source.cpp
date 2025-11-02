@@ -1,32 +1,31 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-void add_to_int(int &r)
-{
-  r += 5;
-}
+// Function overloading
+void Print(string str);
+void Print(int i);
+void Print(string str1, string str2);
 
-// references cannot be null
-
-// you cannot change referenced variable
-// once a var is associated to a reference
-// it is that way forever
-
-// You cannot do math on an index (unlike pointer)
-
-// You cannot point references to references (unlike pointer)
 int main()
   {
-    int i = 0;
-    int &ri = i;
-
-    cout << i << endl;
-    cout << ri << endl;
-
-    add_to_int(ri);
-
-    cout << i << endl;
-    cout << ri << endl;
+    Print("My string one!", "My string two!");
     
     return 0;
   }
+
+void Print(string str)
+{
+  cout << str << endl;
+}
+
+void Print(int i)
+{
+  cout << i << endl;
+}
+
+void Print(string str1, string str2)
+{
+  cout << "String 1: " << str1 << endl;
+  cout << "String 2: " << str2 << endl;
+}
