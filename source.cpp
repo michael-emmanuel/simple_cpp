@@ -2,62 +2,65 @@
 #include <string>
 using namespace std;
 
-enum PlayerStatus
+struct LocationVector
 {
-  PS_Running,
-  PS_Walking,
-  PS_Crouching
+  float X;
+  float Y;
+  float Z;
 };
 
-// .f ensure its type float and not double
-const float RunSpeed = 800.f;
-const float WalkSpeed = 500.f;
-const float CrouchSpeed = 350.f;
+struct Player 
+{
+  int Level;
+  float Health;
+  float Damage;
+  float stamina;
 
-void UpdateMovementSpeed(PlayerStatus P_Status, float& speed);
+  LocationVector Location;
 
-void SwitchOnInt(int i);
+  void TakeDamage(float dmg)
+  {
+    Health -= dmg;
+  }
+
+  int GetLevel()
+  {
+    if (Level > 10) 
+    {
+      cout << "Level is greater than 10 \n";
+    }
+    return Level;
+  }
+
+  void DisplayLocation()
+  {
+    cout << "Location.X = " << Location.X << endl;
+    cout << "Location.Y = " << Location.Y << endl;
+    cout << "Location.Z = " << Location.Z << endl;
+  }
+
+};
 
 int main()
  {
-  int integer = 23;
+  Player p_1;
+  p_1.Level = 11;
+  p_1.Health = 100.f;
+  p_1.Damage = 10.f;
+  p_1.stamina = 20.f;
 
-  SwitchOnInt(integer);
+  cout << "p_1 Level = " << p_1.GetLevel() << endl;
+
+  p_1.TakeDamage(40.f);
+
+  cout << "p_1 takes " << 40.f << " damage!" << endl;
+  cout << "p_1 Health = " << p_1.Health << endl;
+
+  p_1.DisplayLocation();
+
+  Player p_2 = {1, 50.f, 40.f, 35.54f, {35.5f, 67.45f, 100.003f}};
+
+  p_2.DisplayLocation();
 
   return 0;
  }
-
-// switch cases are much faster than else ifs bc if does check every 
-// single case like the else if does (think 1000+ checks that happen very often)
-void UpdateMovementSpeed(PlayerStatus P_Status, float& speed)
-{
-  switch (P_Status)
-  {
-    case PS_Running:
-      speed = RunSpeed;
-      break;
-    case PS_Walking:
-      speed = WalkSpeed;
-      break;
-    case PS_Crouching:
-      speed = CrouchSpeed;
-  }
-}
-
-void SwitchOnInt(int i)
-{
-  switch (i)
-  {
-    case 0:
-      cout << "Your number was zero. \n";
-      break;
-    case 1:
-      cout << "Your number was one. \n";
-      break;
-    case 2:
-      cout << "Your number was two. \n";
-      break;
-    default:
-      cout << "Your number was not 0, 1, or 2. \n";
-  }
-}
