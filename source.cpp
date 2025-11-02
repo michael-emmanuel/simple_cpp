@@ -11,7 +11,13 @@ class Object
 class Actor : public Object
 {
   public:
-    virtual void BeginPlay();
+    virtual void BeginPlay() override;
+};
+
+class Pawn : public Actor
+{
+  public:
+    virtual void BeginPlay() override;
 };
 
 int main()
@@ -22,8 +28,12 @@ int main()
   Actor* act = new Actor;
   act->BeginPlay();
 
+  Pawn* pwn = new Pawn;
+  pwn->BeginPlay();
+
   delete obj;
   delete act;
+  delete pwn;
 
   return 0;
 }
@@ -36,4 +46,9 @@ void Object::BeginPlay()
 void Actor::BeginPlay()
 {
   cout << "Actor BeginPlay() called. \n";
+}
+
+void Pawn::BeginPlay()
+{
+  cout << "Pawn BeginPlay() called. \n";
 }
