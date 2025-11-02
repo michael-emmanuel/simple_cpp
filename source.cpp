@@ -2,34 +2,51 @@
 #include <string>
 using namespace std;
 
-struct Cat
+class Animal
 {
-  Cat();
+  public:
+    Animal();
+    Animal(string name, int age, int num_limbs);
 
-  int age;
-  float Health;
+    string Name;
+    int Age;
+    int NumberOfLimbs;
 
-  void Meow();
+    void Report();
 };
 
-Cat::Cat()
+class Dog : public Animal // inherits from animal
 {
-  cout << "A new cat is born!" << endl;
-
-  age = 3;
-  Health = 75.f;
-
-  Meow();
-}
-
-void Cat::Meow()
-{
-  cout << "My age is: " << age << ".\n";
-  cout << "My Health is: " << Health << ".\n";
-}
-
+  public:
+};
 int main()
  {
-  Cat cat;
+  Dog dog;
+
   return 0;
  }
+
+Animal::Animal()
+{
+  cout << "An ANIMAL is born!\n";
+
+  Name = "DEFAULT";
+  Age = 2;
+  NumberOfLimbs = 4;
+}
+
+Animal::Animal(string name, int age, int num_limbs): 
+  Name(name), Age(age), NumberOfLimbs(num_limbs)
+{
+  Report();
+}
+
+void Animal::Report()
+{
+  cout << endl;
+  cout << "Name: " << Name << endl;
+  cout << "Age: " << Age << endl;
+  cout << "NumberOfLimbs: " << NumberOfLimbs << endl;
+  cout << endl;
+
+}
