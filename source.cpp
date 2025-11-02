@@ -4,9 +4,24 @@ using namespace std;
 
 struct Character
 {
+  Character();
+
+  void PrintHealth();
+
   string Name;
   float Health;
 };
+
+Character::Character()
+{
+  Name = "Default Name";
+  Health = 100.f;
+}
+
+void Character::PrintHealth()
+{
+  cout << "Health = " << Health << endl;
+}
 
 int main()
 {
@@ -14,9 +29,9 @@ int main()
   {
     Character* PtrToChar = new Character();
 
-    PtrToChar->Name = "Neo";
-
     cout << PtrToChar->Name << endl;
+
+    PtrToChar->PrintHealth();
 
     delete PtrToChar;
   }
