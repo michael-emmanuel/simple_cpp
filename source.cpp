@@ -2,19 +2,34 @@
 #include <string>
 using namespace std;
 
-void AddToCount()
+class Critter
 {
-  static int count = 0; // use static to maintain state outside scope
-  count++;              // however you have no way of accessing count
-  cout << count << endl;
-}
+  public:
+    Critter()
+    {
+      cout << "A critter is born!\n";
+      ++CritterCount;
+    }
+
+    static void AnnounceCount()
+    {
+      cout << CritterCount << endl;
+    }
+
+    static int CritterCount;
+};
+
+int Critter::CritterCount = 0;
 
 int main()
 {
-  for (int i = 0; i < 100; i++)
-  {
-    AddToCount();
-  }
+  Critter::AnnounceCount();
+
+  Critter* crit = new Critter;
+  
+  Critter::AnnounceCount();
+
+  delete crit;
 
   return 0;
 }

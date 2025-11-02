@@ -3,6 +3,7 @@
     "*.ejs": "html",
     "*.css": "tailwindcss",
     "iostream": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "new": "cpp"
   }
 }
