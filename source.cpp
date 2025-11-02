@@ -62,9 +62,8 @@ Dog::Dog()
   cout << "A DOG is born!\n";
 }
 
-Dog::Dog(string name, int age, int num_limbs)
+Dog::Dog(string name, int age, int num_limbs) : Animal(name, age, num_limbs)
 {
-  Animal(name, age, num_limbs);
 }
 
 void Dog::Speak()
