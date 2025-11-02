@@ -4,15 +4,14 @@ using namespace std;
 
 int main()
  {
-  int i = 1;
-  int j = 2;
-  int k = 3;
+  int myIntArray[3];
+  myIntArray[0] = 1;
+  myIntArray[1] = 2;
+  myIntArray[2] = 3;
 
-  if (i <= k || i == j)
+  for (int i = 0; i < 3; i++)
   {
-    cout << "This will be printed" << endl;
+    cout << myIntArray[i] << endl;
   }
-  
-  return 0;
  }
 
