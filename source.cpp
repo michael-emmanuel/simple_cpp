@@ -2,34 +2,38 @@
 #include <string>
 using namespace std;
 
-class Critter
+class Object
 {
   public:
-    Critter()
-    {
-      cout << "A critter is born!\n";
-      ++CritterCount;
-    }
-
-    static void AnnounceCount()
-    {
-      cout << CritterCount << endl;
-    }
-
-    static int CritterCount;
+    virtual void BeginPlay();
 };
-
-int Critter::CritterCount = 0;
+// vitual functions can be inherited and overwritten by the inheriter
+class Actor : public Object
+{
+  public:
+    virtual void BeginPlay();
+};
 
 int main()
 {
-  Critter::AnnounceCount();
+  Object* obj = new Object;
+  obj->BeginPlay();
 
-  Critter* crit = new Critter;
-  
-  Critter::AnnounceCount();
+  Actor* act = new Actor;
+  act->BeginPlay();
 
-  delete crit;
+  delete obj;
+  delete act;
 
   return 0;
+}
+
+void Object::BeginPlay()
+{
+  cout << "Object BeginPlay() called. \n";
+}
+
+void Actor::BeginPlay()
+{
+  cout << "Actor BeginPlay() called. \n";
 }
