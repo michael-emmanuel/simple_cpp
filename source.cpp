@@ -7,18 +7,34 @@ class Object
 {
   public:
     virtual void BeginPlay();
+
+    void ObjectFunction()
+    {
+      cout << "ObjectFunction() called. \n\n";
+    };
 };
 // Every Actor is an object
 class Actor : public Object
 {
   public:
     virtual void BeginPlay() override;
+
+  void ActorFunction()
+  {
+    cout << "ActorFunction() called.\n\n";
+  }
 };
+
 // Every Pawn is an actor, and thus also an Object
 class Pawn : public Actor
 {
   public: 
     virtual void BeginPlay() override;
+
+    void PawnFunction()
+    {
+      cout << "PawnFunction() called. \n\n";
+    }
 };
 
 int main()
@@ -27,15 +43,26 @@ int main()
   Actor* ptr_to_actor = new Actor;
   Pawn* ptr_to_pawn = new Pawn;
 
-  // Why can we initialize these arrays types to Object
-  // Be each one of these (obj, actor, pawn) can legally convert to an object
-  // Note: Polymorphism almost always uses pointers or refs, not plain objs
-  // This would error => Object ObjectArray[] = {Object(), Actor(), Pawn()}
   Object* ObjectArray[] = {ptr_to_object, ptr_to_actor, ptr_to_pawn};
 
   for (int i = 0; i < 3; i++)
   {
-    ObjectArray[i]->BeginPlay();
+    // ObjectArray[i]->BeginPlay();
+    Object* obj = ObjectArray[i];
+
+    Actor* act = dynamic_cast<Actor*>(obj);
+
+    if (act) 
+    {
+      act->ActorFunction();
+    }
+
+    Pawn* pwn = dynamic_cast<Pawn*>(obj);
+
+    if (pwn) 
+    {
+      pwn->PawnFunction();
+    }
   }
 
   delete ptr_to_object;
