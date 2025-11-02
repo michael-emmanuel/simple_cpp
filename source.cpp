@@ -15,13 +15,19 @@ class Animal
     void Report();
 };
 
-class Dog : public Animal // inherits from animal
+class Dog : public Animal
 {
-  public:
+public:
+  Dog();
+  Dog(string name, int age, int num_limbs);
+
+  void Speak();
 };
 int main()
  {
-  Dog dog;
+  Dog dog("Spot", 4, 5);
+
+  dog.Speak();
 
   return 0;
  }
@@ -49,4 +55,19 @@ void Animal::Report()
   cout << "NumberOfLimbs: " << NumberOfLimbs << endl;
   cout << endl;
 
+}
+
+Dog::Dog()
+{
+  cout << "A DOG is born!\n";
+}
+
+Dog::Dog(string name, int age, int num_limbs)
+{
+  Animal(name, age, num_limbs);
+}
+
+void Dog::Speak()
+{
+  cout << "Woof!\n";
 }
