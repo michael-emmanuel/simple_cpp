@@ -23,11 +23,18 @@ public:
 
   void Speak();
 };
+
+class Corgi : public Dog
+{
+
+};
+
 int main()
  {
-  Dog dog("Spot", 4, 5);
+  Corgi corgi;
 
-  dog.Speak();
+  corgi.Speak();
+  corgi.Report();
 
   return 0;
  }
