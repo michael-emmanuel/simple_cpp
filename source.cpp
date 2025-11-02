@@ -2,41 +2,36 @@
 #include <string>
 using namespace std;
 
-struct Character
+class Character
 {
-  Character();
+  public:
+    Character();
+    ~Character(); // Destructor notice ~
 
-  void PrintHealth();
-
-  string Name;
-  float Health;
+    int* CharacterAge;
+    float* CharacterHealth;
 };
-
-Character::Character()
-{
-  Name = "Default Name";
-  Health = 100.f;
-}
-
-void Character::PrintHealth()
-{
-  cout << "Health = " << Health << endl;
-}
 
 int main()
 {
-  for (int i = 0; i < 1000000000000000; i++)
-  {
-    Character* PtrToChar = new Character();
-
-    cout << PtrToChar->Name << endl;
-
-    PtrToChar->PrintHealth();
-
-    delete PtrToChar;
-  }
-
+  Character* Char = new Character;
+  delete Char;
 
   return 0;
 }
 
+Character::Character()
+{
+  cout << "A new character was created.\n";
+
+  CharacterAge = new int(1);
+  CharacterHealth = new float(100.f);
+}
+
+Character::~Character()
+{
+  cout << "Character Destroyed.\n";
+
+  delete CharacterAge;
+  delete CharacterHealth;
+}
