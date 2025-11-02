@@ -4,13 +4,19 @@ using namespace std;
 
 int main()
  {
-  int MyInt = 2;
-  // Passing around addresses in a program is more efficient that pass a huge struct or long array
-  // pointers do not have to be initialized right away, unlike references
-  int* ptr;
-  ptr = &MyInt;
-  cout << ptr << endl;
-  cout << *ptr << endl; // the * dereferences the pointer, returning the value stored in memory
+  int a = 100;
+  int* aPtr;
+  aPtr = &a; // &a => address of operator, returns address of a NOTE: & on left side of equal sign for reference
+
+  cout << aPtr << endl;
+  cout << *aPtr << endl; // dereference to get value living in address
+
+  int numbers[] = {0,1,2,3,4,5,6,7,8,9,10};
+
+  int* numPtr = numbers; // only stores the address of the first element
+  numPtr++; // bc arrays are contigious in memory, incrementing give us next val in array
+
+  cout << *numPtr << endl;
 
   return 0;
  }
