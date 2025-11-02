@@ -14,7 +14,18 @@ int main()
   int numbers[] = {0,1,2,3,4,5,6,7,8,9,10};
 
   int* numPtr = numbers; // only stores the address of the first element
+
+  cout << *numPtr << endl;
+
   numPtr++; // bc arrays are contigious in memory, incrementing give us next val in array
+
+  cout << *numPtr << endl;
+
+  numPtr++;
+
+  cout << *numPtr << endl;
+
+  numPtr += 2;
 
   cout << *numPtr << endl;
 
