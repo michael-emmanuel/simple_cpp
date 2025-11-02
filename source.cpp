@@ -2,78 +2,40 @@
 #include <string>
 using namespace std;
 
-class Animal
+class Creature
 {
   public:
-    Animal();
-    Animal(string name, int age, int num_limbs);
+    Creature();
 
+    void SetName(string name);
+    string GetName();
+
+  private:
     string Name;
-    int Age;
-    int NumberOfLimbs;
-
-    void Report();
-};
-
-class Dog : public Animal
-{
-public:
-  Dog();
-  Dog(string name, int age, int num_limbs);
-
-  void Speak();
-};
-
-class Corgi : public Dog
-{
-
+    float Health;
 };
 
 int main()
- {
-  Corgi corgi;
+{
+  Creature Igor;
+  Igor.SetName("Igor");
 
-  corgi.Speak();
-  corgi.Report();
+  cout << Igor.GetName() << endl;
 
   return 0;
- }
-
-Animal::Animal()
-{
-  cout << "An ANIMAL is born!\n";
-
-  Name = "DEFAULT";
-  Age = 2;
-  NumberOfLimbs = 4;
 }
 
-Animal::Animal(string name, int age, int num_limbs): 
-  Name(name), Age(age), NumberOfLimbs(num_limbs)
+Creature::Creature()
 {
-  Report();
+  cout << "A creature has been created!\n";
 }
 
-void Animal::Report()
+void Creature::SetName(string name)
 {
-  cout << endl;
-  cout << "Name: " << Name << endl;
-  cout << "Age: " << Age << endl;
-  cout << "NumberOfLimbs: " << NumberOfLimbs << endl;
-  cout << endl;
-
+  Name = name;
 }
 
-Dog::Dog()
+string Creature::GetName()
 {
-  cout << "A DOG is born!\n";
-}
-
-Dog::Dog(string name, int age, int num_limbs) : Animal(name, age, num_limbs)
-{
-}
-
-void Dog::Speak()
-{
-  cout << "Woof!\n";
+  return Name;
 }
