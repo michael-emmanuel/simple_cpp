@@ -2,36 +2,19 @@
 #include <string>
 using namespace std;
 
-class Character
+void AddToCount()
 {
-  public:
-    Character();
-    ~Character(); // Destructor notice ~
-
-    int* CharacterAge;
-    float* CharacterHealth;
-};
+  static int count = 0; // use static to maintain state outside scope
+  count++;              // however you have no way of accessing count
+  cout << count << endl;
+}
 
 int main()
 {
-  Character* Char = new Character;
-  delete Char;
+  for (int i = 0; i < 100; i++)
+  {
+    AddToCount();
+  }
 
   return 0;
-}
-
-Character::Character()
-{
-  cout << "A new character was created.\n";
-
-  CharacterAge = new int(1);
-  CharacterHealth = new float(100.f);
-}
-
-Character::~Character()
-{
-  cout << "Character Destroyed.\n";
-
-  delete CharacterAge;
-  delete CharacterHealth;
 }
