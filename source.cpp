@@ -2,28 +2,34 @@
 #include <string>
 using namespace std;
 
-class Dog
+struct Cat
 {
-  public:
-    Dog()
-    {
-      Bark();
-    }
+  Cat();
 
-    string Name;
-    int Age;
-    float Health;
+  int age;
+  float Health;
 
-    void Bark()
-    {
-      cout << "Woof!" << endl;
-    }
+  void Meow();
 };
+
+Cat::Cat()
+{
+  cout << "A new cat is born!" << endl;
+
+  age = 3;
+  Health = 75.f;
+
+  Meow();
+}
+
+void Cat::Meow()
+{
+  cout << "My age is: " << age << ".\n";
+  cout << "My Health is: " << Health << ".\n";
+}
 
 int main()
  {
-  Dog Spot;
-  Dog Rex;
-
+  Cat cat;
   return 0;
  }
