@@ -13,5 +13,11 @@ int main()
   {
     cout << myIntArray[i] << endl;
   }
+
+  // number not needed in sq brackets when arr is
+  // initialized in the same line var is declared
+  double myDubArray[] = {3.14159, 2.71828};
+  cout << myDubArray[1] << endl;
+  cout << myDubArray[0] << endl;
  }
 
