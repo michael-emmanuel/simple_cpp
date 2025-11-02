@@ -2,39 +2,28 @@
 #include <string>
 using namespace std;
 
-// Function overloading
-void Print(string str);
-void Print(int i);
-void Print(string str1, string str2);
-void printIt(char c);
-
 int main()
-  {
-    Print("My string one!", "My string two!");
+ {
+  // complex way to create string using char
+  char MyComplexString[5] = {'D', 'o', 'g', 's', '\0'};
 
-    printIt('g');
-    
-    return 0;
-  }
+  // less complex way to create string using char 
+  // len 5 to account for null char
+  char myLessComplexString[5] = "Dogs";
 
-void Print(string str)
-{
-  cout << str << endl;
-}
+  // go to way, must #include string
+  // w/o importing namespace std -> std::string
+  string MyString;
+  MyString = "My dog's name is: ";
+  string first = "Spot ";
+  string last = "Jones";
 
-void Print(int i)
-{
-  cout << i << endl;
-}
+  MyString += (first + last);
 
-void Print(string str1, string str2)
-{
-  cout << "String 1: " << str1 << endl;
-  cout << "String 2: " << str2 << endl;
-}
-
-void printIt(char s)
-{
-  cout << s << endl;
-}
+  cout << MyComplexString << endl;
+  cout << myLessComplexString << endl;
+  cout << MyString << endl;
+  
+  return 0;
+ }
 
