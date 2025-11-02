@@ -2,12 +2,13 @@
 #include <string>
 using namespace std;
 
+// Create inheritance chain
 class Object
 {
   public:
     virtual void BeginPlay();
 };
-// vitual functions can be inherited and overwritten by the inheriter
+
 class Actor : public Object
 {
   public:
@@ -16,25 +17,25 @@ class Actor : public Object
 
 class Pawn : public Actor
 {
-  public:
+  public: 
     virtual void BeginPlay() override;
 };
 
 int main()
 {
-  Object* obj = new Object;
-  obj->BeginPlay();
+  Object* ptr_to_object = new Object;
+  Actor* ptr_to_actor = new Actor;
+  Pawn* ptr_to_pawn = new Pawn;
 
-  Actor* act = new Actor;
-  act->BeginPlay();
+  // Why can we initialize these arrays types to Object
+  Object* ObjectArray[] = {ptr_to_object, ptr_to_actor, ptr_to_pawn};
 
-  Pawn* pwn = new Pawn;
-  pwn->BeginPlay();
+  for (int i = 0; i < 3; i++)
+  {
+    ObjectArray[i]->BeginPlay();
+  }
 
-  delete obj;
-  delete act;
-  delete pwn;
-
+  delete ptr_to_object;
   return 0;
 }
 
