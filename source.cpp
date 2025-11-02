@@ -13,20 +13,21 @@ enum PlayerStatus
 enum MovementStatus
 {
   MS_Crouched,
-  PS_Running
+  MS_Running
 }
 
 int main()
  {
   PlayerStatus status;
   status = PlayerStatus::PS_Running;
+  MovementStatus m_status; 
 
   if (status == PS_Crouched)
   {
     cout << "The player is crouching! \n";
   }
 
-  status = PS_Walking;
+  m_status = MovementStatus::MS_Running;
   if (status == PS_Crouched)
   {
     cout << "The player is crouching! \n";
