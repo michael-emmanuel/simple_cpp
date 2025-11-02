@@ -14,7 +14,7 @@ enum MovementStatus
 {
   MS_Crouched,
   MS_Running
-}
+};
 
 int main()
  {
