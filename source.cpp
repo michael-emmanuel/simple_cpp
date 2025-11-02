@@ -22,6 +22,7 @@ int main()
   cout << (*PtrToCont).y << endl;
   cout << (*PtrToCont).z << endl;
 
+  cout << PtrToCont->Name << endl; // syntactic sugar - better than parenthesis
 
   return 0;
  }
