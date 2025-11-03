@@ -5,7 +5,7 @@
 #include "Pawn.h"
 using namespace std;
 
-int main()
+void inheritanceFunction()
 {
   Object* ptr_to_object = new Object;
   Actor* ptr_to_actor = new Actor;
@@ -36,5 +36,10 @@ int main()
   delete ptr_to_object;
   delete ptr_to_actor;
   delete ptr_to_pawn;
+}
+
+int main()
+{
+  inheritanceFunction();
   return 0;
 }
