@@ -1,41 +1,9 @@
 #include <iostream>
 #include <string>
+#include "Object.h"
+#include "Actor.h"
+#include "Pawn.h"
 using namespace std;
-
-// Create inheritance chain
-class Object
-{
-  public:
-    virtual void BeginPlay();
-
-    void ObjectFunction()
-    {
-      cout << "ObjectFunction() called. \n\n";
-    };
-};
-// Every Actor is an object
-class Actor : public Object
-{
-  public:
-    virtual void BeginPlay() override;
-
-  void ActorFunction()
-  {
-    cout << "ActorFunction() called.\n\n";
-  }
-};
-
-// Every Pawn is an actor, and thus also an Object
-class Pawn : public Actor
-{
-  public: 
-    virtual void BeginPlay() override;
-
-    void PawnFunction()
-    {
-      cout << "PawnFunction() called. \n\n";
-    }
-};
 
 int main()
 {
@@ -66,20 +34,7 @@ int main()
   }
 
   delete ptr_to_object;
+  delete ptr_to_actor;
+  delete ptr_to_pawn;
   return 0;
-}
-
-void Object::BeginPlay()
-{
-  cout << "Object BeginPlay() called. \n";
-}
-
-void Actor::BeginPlay()
-{
-  cout << "Actor BeginPlay() called. \n";
-}
-
-void Pawn::BeginPlay()
-{
-  cout << "Pawn BeginPlay() called. \n";
 }
