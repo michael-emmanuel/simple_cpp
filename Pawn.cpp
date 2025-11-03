@@ -1,5 +1,8 @@
 #include "Pawn.h"
 
+Pawn::Pawn() {}
+Pawn::~Pawn() {}
+
 void Pawn::BeginPlay()
 {
   cout << "Pawn BeginPlay() called. \n";
