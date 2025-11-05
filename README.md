@@ -1,5 +1,5 @@
-# simple_cpp
+# cpp_refresher
 
-simple c++
+C++
 
-Learning c++ synthax and other features
+Refresher on c++ synthax and other features
